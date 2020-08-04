@@ -20,7 +20,7 @@ class LoginViewController: UIViewController {
                 print(er)
                 self.title = "Wrong"
             }else{
-                self.performSegue(withIdentifier: "FromLoginToChat", sender: self)
+                self.performSegue(withIdentifier: "fromLogin", sender: self)
             }
         }
         }
