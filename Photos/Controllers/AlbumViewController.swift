@@ -16,7 +16,7 @@ class AlbumViewController: UITableViewController {
         super.viewDidLoad()
         tableView.rowHeight = 383
         downloadData()
-        
+        title = albumTitle
         
     }
 
@@ -31,12 +31,19 @@ class AlbumViewController: UITableViewController {
         albumCell.likesLabel.text = String(hitsArray[indexPath.row].likes)
         albumCell.tagsLabel.text = hitsArray[indexPath.row].tags
         if let imageURL = URL(string: hitsArray[indexPath.row].webformatURL) {
+            albumCell.spinner.startAnimating()
                    DispatchQueue.global().async {
                        let data = try? Data(contentsOf: imageURL)
                        if let data = data {
                            let image = UIImage(data: data)
                            DispatchQueue.main.async {
                             albumCell.photoImage.image = image
+                            if case albumCell.photoImage.image = image {
+                                albumCell.spinner.stopAnimating()
+                                albumCell.spinner.hidesWhenStopped = true
+                            }
+                           
+                          
                        }
                    }
                }
@@ -54,6 +61,7 @@ class AlbumViewController: UITableViewController {
     // MARK: - parsing JSON & getting data
     
     func downloadData() {
+    
     let urlString = "https://pixabay.com/api/?key=17753576-e318e14b7839a117254cb5a57&q=\(albumTitle)&image_type=photo&pretty=true"
     let url = URL(string: urlString )
          guard let downloadURL = url else { return }
@@ -70,6 +78,7 @@ class AlbumViewController: UITableViewController {
                 self.hitsArray = decodeData.hits
                  DispatchQueue.main.async {
                      self.tableView.reloadData()
+                     
                     print(self.hitsArray)
                  }
              } catch {

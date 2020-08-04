@@ -20,7 +20,7 @@ class PhotoListViewController: UIViewController,UITableViewDataSource {
         super.viewDidLoad()
        
         tableView.dataSource = self
-        tableView.reloadData()
+        
        
         
     }
