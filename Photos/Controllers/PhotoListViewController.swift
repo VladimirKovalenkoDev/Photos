@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Firebase
 class PhotoListViewController: UIViewController,UITableViewDataSource {
     var photoListArray =  ["Mountain","Forest","Cars","Flowers","People","Dogs","Cats","Children","Friends","Family","Food","Love","War","Peace","Football","Paris","Moscow","Rome","Wachington","Fishing","London","Work","Carnaval","Space","Earth","Moon","School"]
     
@@ -45,7 +45,17 @@ class PhotoListViewController: UIViewController,UITableViewDataSource {
             }
         }
     }
- 
+    
+    @IBAction func logOutPressed(_ sender: UIBarButtonItem) {
+        let firebaseAuth = Auth.auth()
+            do {
+              try firebaseAuth.signOut()
+                navigationController?.popToRootViewController(animated: true)
+            } catch let signOutError as NSError {
+              print ("Error signing out: %@", signOutError)
+            }
+    }
+    
 }
 
 
