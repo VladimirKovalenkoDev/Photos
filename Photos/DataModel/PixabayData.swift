@@ -12,5 +12,8 @@ struct PixabayData: Codable {
     let hits : [PhotoData]
 }
 struct PhotoData: Codable {
-    let previewURL : String
+    let webformatURL : String
+    let likes : Int
+    let user : String
+    let tags : String
 }
