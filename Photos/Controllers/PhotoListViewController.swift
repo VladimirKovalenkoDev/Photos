@@ -45,7 +45,7 @@ class PhotoListViewController: UIViewController,UITableViewDataSource {
             }
         }
     }
-    
+    // MARK: - Log out Method
     @IBAction func logOutPressed(_ sender: UIBarButtonItem) {
         let firebaseAuth = Auth.auth()
             do {

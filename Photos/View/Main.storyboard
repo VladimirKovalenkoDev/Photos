@@ -392,6 +392,7 @@
                                     <outlet property="spinner" destination="R7j-ia-VC7" id="pNb-uf-0qk"/>
                                     <outlet property="tagsLabel" destination="HgV-TH-7Io" id="zVi-aD-HzW"/>
                                     <outlet property="userLabel" destination="nfP-UN-JDl" id="7Vb-Ii-PJ9"/>
+                                    <segue destination="7XY-5A-jAT" kind="presentation" identifier="photo" id="rQa-Em-yxK"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -405,6 +406,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XBf-xU-Fmf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3898.5507246376815" y="134.59821428571428"/>
+        </scene>
+        <!--Image Scroll View Controller-->
+        <scene sceneID="ijb-Yq-Iei">
+            <objects>
+                <viewController id="7XY-5A-jAT" customClass="ImageScrollViewController" customModule="Photos" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7td-MJ-CEN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="HHt-9s-H1w"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Kib-pM-Z8B"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S2N-yi-QoR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4707.2463768115949" y="136.60714285714286"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="LGL-mR-biO">
