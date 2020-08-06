@@ -14,12 +14,12 @@ class PhotoListViewController: UIViewController,UITableViewDataSource {
    
    
    
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var photosTableView: UITableView!
    
     override func viewDidLoad() {
         super.viewDidLoad()
        
-        tableView.dataSource = self
+        photosTableView.dataSource = self
         
        
         
@@ -27,7 +27,6 @@ class PhotoListViewController: UIViewController,UITableViewDataSource {
     
 // MARK: - TableViewMethods
    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    print(photoListArray.count)
     return photoListArray.count
     
    }
@@ -39,7 +38,7 @@ class PhotoListViewController: UIViewController,UITableViewDataSource {
    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToAlbum"{
-            if let indexPath = tableView.indexPathForSelectedRow {
+            if let indexPath = photosTableView.indexPathForSelectedRow {
                 let destinationVC = segue.destination as! AlbumViewController
                 destinationVC.albumTitle = photoListArray[indexPath.row]
             }

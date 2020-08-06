@@ -11,7 +11,6 @@ import UIKit
 class ImageScrollViewController: UIViewController {
 
     var imageScrollView: ImageScroll!
-     
      var imageURL = ""
      override func viewDidLoad() {
          super.viewDidLoad()
