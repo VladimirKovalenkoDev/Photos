@@ -51,12 +51,13 @@ class ImageScroll: UIScrollView,UIScrollViewDelegate {
 
        }
        
-     /*  override func layoutSubviews() {
+       override func layoutSubviews() {
            super.layoutSubviews()
-           
-           self.centerImage()
+        if imageZoomView != nil {
+            self.centerImage()
+        }
        }
-     */
+     
        func setCurrentMaxandMinZoomScale() {
            let boundsSize = self.bounds.size
            let imageSize = imageZoomView.bounds.size
@@ -79,26 +80,28 @@ class ImageScroll: UIScrollView,UIScrollViewDelegate {
            self.minimumZoomScale = minScale
            self.maximumZoomScale = maxScale
        }
-     /*
+     
        func centerImage() {
            let boundsSize = self.bounds.size
-           var frameToCenter = imageZoomView.frame
-           
-           if frameToCenter.size.width < boundsSize.width {
-               frameToCenter.origin.x = (boundsSize.width - frameToCenter.size.width) / 2
-           } else {
-               frameToCenter.origin.x = 0
-           }
-           
-           if frameToCenter.size.height < boundsSize.height {
-               frameToCenter.origin.y = (boundsSize.height - frameToCenter.size.height) / 2
-           } else {
-               frameToCenter.origin.y = 0
-           }
-           
-           imageZoomView.frame = frameToCenter
+         var frameToCenter = imageZoomView.frame
+            if frameToCenter.size.width < boundsSize.width {
+                frameToCenter.origin.x = (boundsSize.width - frameToCenter.size.width) / 2
+            } else {
+                frameToCenter.origin.x = 0
+            }
+            
+            if frameToCenter.size.height < boundsSize.height {
+                frameToCenter.origin.y = (boundsSize.height - frameToCenter.size.height) / 2
+            } else {
+                frameToCenter.origin.y = 0
+            }
+            
+            imageZoomView.frame = frameToCenter
+        
+        
+        
        }
-      */
+      
        // gesture
        @objc func handleZoomingTap(sender: UITapGestureRecognizer) {
            let location = sender.location(in: sender.view)
@@ -139,7 +142,9 @@ class ImageScroll: UIScrollView,UIScrollViewDelegate {
        }
        
        func scrollViewDidZoom(_ scrollView: UIScrollView) {
-         //  self.centerImage()
+         if imageZoomView != nil {
+             self.centerImage()
+         } 
        }
        
 
